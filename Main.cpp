@@ -32,6 +32,9 @@ public:
 
 		this->colour = temp;
 	};
+	string get_color() {
+		return this->colour;
+	}
 };
 
 class Node {
@@ -41,11 +44,10 @@ public:
 };
 
 Node* create_node(ChainLink* data, Node* previous_node) {
-	Node foo;
-	Node* new_node = &foo;
-	previous_node->next = new_node;
-	new_node->node_data = data;
-	return new_node;
+	Node new_node;
+	previous_node->next = &new_node;
+	new_node.node_data = data;
+	return &new_node;
 }
 
 int main(){
@@ -54,13 +56,9 @@ int main(){
 	ChainLink link_three = ChainLink(60);
 	ChainLink link_four = ChainLink(100);
 
-	Node head = Node();
-	Node* head_ptr = &head;
-	Node *two = create_node(&link_two, head_ptr);
-	//Node* three = NULL;
-	//head = create_node(&link_three, nullptr);
-	//Node* four = NULL;
-	//head = create_node(&link_four, nullptr);
+
+	//cout << head.node_data->get_color() << endl;
+	//cout << head.next->node_data->get_color() << endl;
 
 	return 0;
 }
