@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//chainlink class where the color is dependent on the strength of the link
 class ChainLink {
 public:
 	int strength;
@@ -37,6 +38,7 @@ public:
 	}
 };
 
+//Node class
 class Node {
 public:
 	ChainLink* node_data;
@@ -51,6 +53,7 @@ public:
 	}
 };
 
+//gives size of a list based of a header pointer
 int list_size(Node* n) {
 	int size = 0;
 	while (n != NULL) {
@@ -60,6 +63,7 @@ int list_size(Node* n) {
 	return size;
 }
 
+//prints list starting from header
 void print_list(Node* n, int depth = 0) {
 	if (depth==0|| list_size(n) <= depth)
 	{
@@ -78,6 +82,7 @@ void print_list(Node* n, int depth = 0) {
 	
 }
 
+//main program
 int main(){
 	ChainLink link_one = ChainLink(80);
 	ChainLink link_two = ChainLink(40);
